@@ -1,14 +1,9 @@
-from pages.login_page import LoginPage
 from pages.website_widget_page import WebsiteWidgetPage
 import pytest
 
-@pytest.mark.run(order=1)
-def test_add_widget(setup_browser_page):
-    page = setup_browser_page
-    login_page = LoginPage(page)
-    login_page.navigate_to_login()
-    login_page.login("romin5954@gmail.com", "RominRomin!234!234")
-
+@pytest.mark.run(order=3)
+def test_add_widget(browser):
+    page = browser
     website_widget_page = WebsiteWidgetPage(page)
     website_widget_page.open_website_widget_page()
     assert website_widget_page.is_website_widget_page_visible()
@@ -22,9 +17,9 @@ def test_add_widget(setup_browser_page):
     website_widget_page.close_created_widget()
 
 
-@pytest.mark.run(order=2)
-def test_remove_last_added_widget(setup_browser_page):
-    page = setup_browser_page
+@pytest.mark.run(order=4)
+def test_remove_last_added_widget(browser):
+    page = browser
     widget_row = page.locator("tbody")
     widget_row.wait_for()
     widget_row_numbers = widget_row.locator("tr").count()
