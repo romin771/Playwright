@@ -29,5 +29,11 @@ class LoginPage:
         dashboard_navbar.wait_for()
         return dashboard_navbar.is_visible()
 
+    def is_login_failed(self):
+        login_error_message = self.page.locator('li:has-text("Wrong email or password")')
+        login_error_message.wait_for()
+        return login_error_message.is_visible()
+
+
 
 
