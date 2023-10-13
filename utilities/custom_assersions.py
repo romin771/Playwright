@@ -18,3 +18,6 @@ def assert_element_has_attribute(element: ElementHandle, attribute_name: str, ex
     assert actual_value == expected_value, f"Attribute '{attribute_name}' has value '{actual_value}' but expected '{expected_value}'"
 def assert_element_has_class(element: ElementHandle, class_name: str):
     assert class_name in element.get_attribute("class"), f"Element does not have class '{class_name}'"
+
+def assert_element_checked(element: ElementHandle, is_checked: bool = True):
+    assert element.is_checked() == is_checked, f"Element is not {'checked' if is_checked else 'unchecked'}"
