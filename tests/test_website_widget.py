@@ -1,5 +1,7 @@
 from pages.website_widget_page import WebsiteWidgetPage
 import pytest
+from utilities.custom_assersions import assert_element_text_equal
+
 
 @pytest.mark.run(order=3)
 def test_add_widget(browser):
@@ -8,6 +10,9 @@ def test_add_widget(browser):
     website_widget_page.open_website_widget_page()
     assert website_widget_page.is_website_widget_page_visible()
     assert "um_widget" in website_widget_page.get_website_widget_url()
+
+    # from util/custom_assert
+    assert_element_text_equal(website_widget_page.get_add_widget_button(), " Add Widget")
 
     website_widget_page.add_widget()
     assert website_widget_page.is_new_widget_modal_visible()
