@@ -3,6 +3,10 @@ class WebsiteWidgetPage():
         self.page = page
 
 
+    #locators
+    _add_widget = "#widgetWizard"
+
+
     def open_website_widget_page(self):
         channels_button = self.page.locator('span:has-text("Channels")').last
         channels_button.wait_for()
@@ -19,9 +23,11 @@ class WebsiteWidgetPage():
     def get_website_widget_url(self):
         return self.page.url
 
+    def get_add_widget_button(self):
+        return self.page.locator(self._add_widget)
+
     def add_widget(self):
-        add_widget_button = self.page.locator("#widgetWizard")
-        add_widget_button.click()
+        self.get_add_widget_button().click()
 
     def is_new_widget_modal_visible(self):
         new_widget_modal = self.page.locator("#modalWizard")
@@ -39,5 +45,6 @@ class WebsiteWidgetPage():
     def close_created_widget(self):
         close_widget_button = self.page.locator(".close")
         close_widget_button.click()
+
 
 
