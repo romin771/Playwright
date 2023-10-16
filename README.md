@@ -2,8 +2,7 @@
 
 ## Introduction
 
-Welcome to my Playwright and Pytest-based Test Automation Project README! This is a small project I've created to showcase my knowledge of Playwright and the structured test architecture with a focus on the Page Object Model (POM).
-
+Hey there, I put together a fun project in just two days to show how I structure test automation using the Page Object Model and make the most of Pytest.
 ## Project Description
 
 This small project covers four straightforward test cases, each representing a specific scenario. Click on a scenario to see its details:
@@ -176,7 +175,17 @@ This small project covers four straightforward test cases, each representing a s
 
   **Fail Criteria**: The widget deletion process encounters errors, or the widget is not removed from the widget rows.
 </details>
-While working with the application, there were some minor issues that happened with different severity levels. I will try to report them to you in order to showcase the way I report a bug to the development team. I will keep the list ordered by severity, from high to low.
+
+### Viewing Test Results with Allure Reporting
+In order to see the result with Allure reporting, generate Allure Reports by running 
+
+
+pytest -s -v --alluredir=report tests/
+
+And after the tests have finished execution, serve the Allure report using:
+
+allure serve report
+
 
 ## Bugs 
 
@@ -281,9 +290,6 @@ While working with the application, there were some minor issues that happened w
   - The text should read "your current account."
 
   **Actual Behavior**:
-  - The text displays "you current account."
-
-
-
+  - The text displays "you current account.
 
 
